@@ -9,10 +9,20 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       user_id: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Users',
+          Key: 'id'
+        }
       },
-      messages_id: {
-        type: Sequelize.STRING
+      message_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Messages',
+          Key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

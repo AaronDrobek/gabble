@@ -7,8 +7,14 @@ module.exports = function(sequelize, DataTypes) {
     salt: DataTypes.STRING
   }, {});
 
-  User.accociate = (function(models) {
-    User.hasMany(models.Message,{as: 'Messages', foreignKey: 'user_id'})
-  })
+  User.accociate = function(models) {
+    User.hasMany(models.Message, {
+      as: 'Messages', foreignKey: 'user_id'
+    })
+
+    User.hasMany(models.Like, {
+      as: 'Likes', foreignKey: 'user_id'
+    })
+  }
   return User;
 };

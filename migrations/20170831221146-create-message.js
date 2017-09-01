@@ -9,10 +9,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       user_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Users',
+          Key: 'id'
+        }
       },
       messages: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(140)
       },
       createdAt: {
         allowNull: false,

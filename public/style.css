@@ -1,0 +1,52 @@
+*{
+  border: 1px solid grey;
+}
+.container{
+  width: 100vw;
+}
+.main_box{
+  display: flex;
+  width: 100vw;
+}
+.log_box{
+  padding-top: 8vw;
+  width: 50vw;
+  text-align: center;
+}
+.sign_box{
+  padding-top: 8vw;
+  width: 50vw;
+  text-align: center;
+}
+.log_box input{
+  text-align: center;
+  font-size: 20pt;
+  margin-bottom: 1vw;
+}
+.sign_box input{
+  text-align: center;
+  font-size: 16pt;
+  margin-bottom: 1vw;
+}
+
+
+
+
+
+
+
+/*p.speech {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  background-color: #fff;
+  border: 8px solid #666;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 2px 4px #888;
+  -moz-box-shadow: 2px 2px 4px #888;
+  box-shadow: 2px 2px 4px #888;
+}*/
