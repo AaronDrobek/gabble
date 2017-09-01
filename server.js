@@ -14,6 +14,8 @@ const cookieParser = require('cookie-parser');
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "images")));
+
 
 app.engine("mustache", mustacheExpress());
 app.set("views", path.join(__dirname, "views"));

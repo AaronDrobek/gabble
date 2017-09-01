@@ -18,6 +18,27 @@ const isAuthenticated = function (req, res, next) {
     res.redirect('/')
   }
 
+  router.post("/signup", function(req,res){
+    models.user.create({
+      username: req.body.username,
+      handle: req.body.handle,
+      password: req.body.password,
+
+    })
+    .then(function(data) {
+      res.redirect("/list");
+    })
+  });
+  router.get("/list", function(req,res) {
+    models.Message.find()
+    .then(function(data){
+      res.render("list", {user: req.user, message: data})
+    })
+  })
+
+
+
+
 // router.get("/", function(req, res) {
 //   res.render("index", {
 //       messages: res.locals.getMessages()
@@ -34,31 +55,31 @@ const isAuthenticated = function (req, res, next) {
 //   res.render("signup");
 // });
 //
-// router.post("/signup", function(req, res) {
-//   let username = req.body.username
-//   let password = req.body.password
-//
-//   if (!username || !password) {
-//     req.flash('error', "Please, fill in all the fields.")
-//     res.redirect('signup')
-//   }
-//
-//   let salt = bcrypt.genSaltSync(10)
-//   let hashedPassword = bcrypt.hashSync(password, salt)
-//
-//   let newUser = {
-//     username: username,
-//     salt: salt,
-//     password: hashedPassword
-//   }
-//
-//   models.User.create(newUser).then(function() {
-//     res.redirect('/')
-//   }).catch(function(error) {
-//     req.flash('error', "Please, choose a different username.")
-//     res.redirect('/signup')
-//   });
-// });
+router.post("/signup", function(req, res) {
+  let username = req.body.username
+  let password = req.body.password
+
+  if (!username || !password) {
+    req.flash('error', "Please, fill in all the fields.")
+    res.redirect('login')
+  }
+
+  let salt = bcrypt.genSaltSync(10)
+  let hashedPassword = bcrypt.hashSync(password, salt)
+
+  let newUser = {
+    username: username,
+    salt: salt,
+    password: hashedPassword
+  }
+
+  models.User.create(newUser).then(function() {
+    res.redirect('/')
+  }).catch(function(error) {
+    req.flash('error', "Please, choose a different username.")
+    res.redirect('/signup')
+  });
+});
 //
 // router.get("/user", isAuthenticated, function(req, res) {
 //   res.render("user", {username: ''});

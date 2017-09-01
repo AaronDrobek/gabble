@@ -1,20 +1,62 @@
-*{
+/**{
   border: 1px solid grey;
+}*/
+body{
+  /*background: lightblue;*/
+
 }
-.container{
+.navigation{
+  background: lightgrey;
+  display: flex;
+  justify-content: space-around;
   width: 100vw;
+  height: 5vw;
 }
+
+.container{
+  background-image: url("duckpaper.jpg");
+  background-size: 20%;
+  width: 100vw;
+  height: 50vw;
+}
+.list_box{
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+.lil_duck{
+  color: #e58206;
+  font-size: 10pt;
+  margin-right: 30vw;
+}
+
 .main_box{
   display: flex;
   width: 100vw;
 }
 .log_box{
-  padding-top: 8vw;
+  background-color: white;
+  border-top: .5px solid lightgrey;
+  box-shadow: 10px 10px 5px #888888;
+  margin-top: 5vw;
+  padding-top: 6vw;
+  padding-bottom: 3vw;
   width: 50vw;
   text-align: center;
 }
+.log_box img{
+  margin-right: 30vw;
+  width: 5vw;
+  height: 7vw;
+}
 .sign_box{
-  padding-top: 8vw;
+  background-color: white;
+  border-top: .5px solid lightgrey;
+  box-shadow: 10px 10px 5px #888888;
+  margin-top: 5vw;
+  border-left: 5px solid grey;
+  padding-top: 5.5vw;
+  padding-bottom: 3vw;
   width: 50vw;
   text-align: center;
 }
@@ -30,23 +72,31 @@
 }
 
 
+.squawk_box h4{
+  font-size: 8pt;
+
+
+}
 
 
 
 
 
-/*p.speech {
-  position: relative;
-  width: 200px;
-  height: 100px;
-  text-align: center;
-  line-height: 100px;
+.squawk_box {
+  text-overflow: ellipsis;
+  display: flex;
+  flex-wrap: wrap;
+  width: 20%;
+  height: 20vw;
+  padding: 1em;
   background-color: #fff;
-  border: 8px solid #666;
+  border: 2px solid #666;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
   -webkit-box-shadow: 2px 2px 4px #888;
   -moz-box-shadow: 2px 2px 4px #888;
   box-shadow: 2px 2px 4px #888;
-}*/
+  margin-top: 4vw;
+  margin-left: 2vw;
+}
