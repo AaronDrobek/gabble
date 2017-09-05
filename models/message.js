@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     });
     Message.hasMany(models.Like, {
       as: 'Likes',
-      foreignKey: 'messages_id'
+      foreignKey: 'message_id'
     });
 
   }

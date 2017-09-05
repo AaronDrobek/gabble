@@ -2,22 +2,24 @@
 
 
 <div class="navigation">
-  <a href="#">Send a Squawk</a>
-  <a href="#">Log Out</a>
+  <a href="/create">Send a Squawk</a>
+  <a href="/logout">Log Out</a>
 
   <h1>SQUAWKER</h1>
   <p>Welcome Back</p>
   <p>{{handle}}</p>
 </div>
 
+
   <div class="list_box">
     {{#message}}
     <div class="squawk_box">
       <p class = "handle" >{{handle}}</p>
       <h4>{{messages}}</h4>
-      <a href="#"><button class = "like" type="submit" name="like">Like</button></a>
-      <a href="#"><button class = "delete" type="button" name="delete">Delete</button></a>
-    {{/message}}
+      <h4>{{createdAt}}</h4><br>
+      <a href="/like/{{id}}"><button class = "like" type="submit" name="like">Like</button></a>
+      <a href="/destroy/{{id}}"><button class = "delete" type="button" name="delete">Delete</button></a>
     </div>
+    {{/message}}
 
   </div>

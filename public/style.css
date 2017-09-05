@@ -2,6 +2,7 @@
   border: 1px solid grey;
 }*/
 body{
+  /*height: 100vw;*/
   /*background: lightblue;*/
 
 }
@@ -15,15 +16,13 @@ body{
 
 .container{
   background-image: url("duckpaper.jpg");
-  background-size: 20%;
+  background-size: 10%;
   width: 100vw;
-  height: 50vw;
 }
-.list_box{
-  width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
-}
+
+
+
+
 .lil_duck{
   color: #e58206;
   font-size: 10pt;
@@ -33,31 +32,41 @@ body{
 .main_box{
   display: flex;
   width: 100vw;
+  height: 52vw;
+
 }
 .log_box{
+  border-radius: 15%;
   background-color: white;
   border-top: .5px solid lightgrey;
   box-shadow: 10px 10px 5px #888888;
-  margin-top: 5vw;
+  margin-top: 6vw;
+  margin-right: 1vw;
   padding-top: 6vw;
+  margin-left: 3vw;
   padding-bottom: 3vw;
-  width: 50vw;
+  width: 45vw;
+  height:30vw;
   text-align: center;
 }
+
 .log_box img{
   margin-right: 30vw;
   width: 5vw;
   height: 7vw;
 }
 .sign_box{
+  border-radius: 15%;
   background-color: white;
   border-top: .5px solid lightgrey;
   box-shadow: 10px 10px 5px #888888;
-  margin-top: 5vw;
-  border-left: 5px solid grey;
+  margin-top: 6vw;
+  margin-left: 2vw;
+  border-left: 1px solid grey;
   padding-top: 5.5vw;
   padding-bottom: 3vw;
-  width: 50vw;
+  width: 45vw;
+  height: 30vw;
   text-align: center;
 }
 .log_box input{
@@ -65,6 +74,8 @@ body{
   font-size: 20pt;
   margin-bottom: 1vw;
 }
+
+
 .sign_box input{
   text-align: center;
   font-size: 16pt;
@@ -74,29 +85,63 @@ body{
 
 .squawk_box h4{
   font-size: 8pt;
+}
+
+.create_box{
+  width: 100vw;
+  padding-bottom: 55vw;
+}
+
+.create_box button{
+  background-color: orange;
+  margin-left: 2vw;
+  margin-top: 1vw;
+  width: 70vw;
+  font-size: 18pt;
+  box-shadow: 10px 10px 5px #888888;
+  border-radius: 30px;
+
+}
+.tarea{
+  margin-top: 6vw;
+  font-size: 18pt;
+  box-shadow: 10px 10px 5px #888888;
+  background-color: #fff;
+  border: 10px solid #666;
+  border-radius: 30px;
+  box-shadow: 2px 2px 4px #888;
+}
 
 
+
+.like{
+  background: yellow;
+}
+.delete{
+  background: darkgrey;
 }
 
 
 
 
 
-.squawk_box {
-  text-overflow: ellipsis;
+.list_box{
+  width: 100vw;
+  padding-bottom: 20vw;
   display: flex;
   flex-wrap: wrap;
-  width: 20%;
-  height: 20vw;
-  padding: 1em;
+  flex-direction: row;
+}
+
+
+.squawk_box {
+  width: 18vw;
+  height: 100%;
+  padding: 1vw;
   background-color: #fff;
-  border: 2px solid #666;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
+  border: 10px solid #666;
   border-radius: 30px;
-  -webkit-box-shadow: 2px 2px 4px #888;
-  -moz-box-shadow: 2px 2px 4px #888;
   box-shadow: 2px 2px 4px #888;
-  margin-top: 4vw;
+  margin-top: 2vw;
   margin-left: 2vw;
 }
