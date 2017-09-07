@@ -6,19 +6,20 @@
   <a href="/logout">Log Out</a>
 
   <h1>SQUAWKER</h1>
-  <p>Welcome Back</p>
-  <p>{{handle}}</p>
+  <h2 class ="user">Welcome Back: -{{handle}}-</h2>
 </div>
 
 
   <div class="list_box">
     {{#message}}
     <div class="squawk_box">
-      <p class = "handle" >{{handle}}</p>
-      <h4>{{messages}}</h4>
+      <p class = "handle" >Posted By: {{#Users}}{{handle}}{{/Users}}</p>
+      <h3>{{messages}}</h3>
       <h4>{{createdAt}}</h4><br>
+        <p>{{Likes.length}}-Likes</p>
       <a href="/like/{{id}}"><button class = "like" type="submit" name="like">Like</button></a>
       <a href="/destroy/{{id}}"><button class = "delete" type="button" name="delete">Delete</button></a>
+      <a href="/individual/{{id}}"><button type="button" name="view">View Likes</button></a>
     </div>
     {{/message}}
 

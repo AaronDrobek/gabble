@@ -9,17 +9,25 @@ body{
 .navigation{
   background: lightgrey;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100vw;
   height: 5vw;
 }
-
+.navigation a{
+  margin-top: 2vw;
+  color: navy;
+  font-size: 18pt;
+  font-weight: 500;
+}
 .container{
   background-image: url("duckpaper.jpg");
   background-size: 10%;
   width: 100vw;
 }
-
+.user{
+  color: navy;
+  margin-right: 6vw;
+}
 
 
 
@@ -91,7 +99,10 @@ body{
   width: 100vw;
   padding-bottom: 55vw;
 }
-
+.like_box{
+  width: 100vw;
+  padding-bottom: 55vw;
+}
 .create_box button{
   background-color: orange;
   margin-left: 2vw;
@@ -127,7 +138,7 @@ body{
 
 .list_box{
   width: 100vw;
-  padding-bottom: 20vw;
+  padding-bottom: 55vw;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;

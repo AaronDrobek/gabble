@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     message_id: DataTypes.STRING
   }, {});
 
-  Like.accociate = function(models) {
+  Like.associate = function(models) {
     Like.belongsTo(models.User, {
       as: "Users",
       foreignKey: 'user_id'

@@ -18,19 +18,70 @@ const isAuthenticated = function (req, res, next) {
     res.redirect('/')
   }
 
+const areYouMyMother = function(req, res, next) {
+  console.log(req.params.id, 'this is req params id');
+   models.Message.findById(req.params.id)
+   .then(function(data) {
+     if(data.user_id == req.user.id){
+      return next()
+    }else{
+      res.redirect("/list")
+    }
 
-  router.get("/destroy/:id", function(req, res) {
-    models.Message.destroy({
-      where: {
-        id: req.params.id
-      }
+  })
+  .catch(function(err){
+    res.redirect("/list")
+  })
+}
+
+let tempData;
+
+router.get("/individual/:id", function(req, res) {
+  if (req.params.id === 'style.css') {
+    res.render("individual", {handle: req.user.handle, likes:tempData})
+    tempData = null;
+  } else {
+    models.Like.findAll({
+      where:{
+        message_id: req.params.id
+      },
+         include: [{ model: models.User,
+           as: "Users"}]
+
     })
-    .then(function(message) {
-       if(message.user_id == req.user.id) {
-         console.log("this should delete", message.user_id);
-         res.render("list");
 
-       }
+    .then(function(data) {
+      tempData = data;
+      console.log(data, "this is reg data");
+      console.log(tempData, "this is temp data");
+      res.render("individual", {handle: req.user.handle, likes: tempData})
+    })
+  }
+})
+
+
+
+
+
+
+
+
+
+  router.get("/destroy/:id", areYouMyMother, function(req, res) {
+    models.Like.destroy({
+      where: {
+        message_id: req.params.id
+      }
+    }).then(function() {
+      models.Message.destroy({
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(function(message) {
+           console.log("this should delete", message.user_id);
+           res.redirect("/list");
+      })
     })
   })
 
@@ -48,20 +99,20 @@ const isAuthenticated = function (req, res, next) {
       })
 
     .then(function(data){
-      res.render("list", {handle: req.params.handle, message: data, user: data})
-      console.log(req.params.handle, "this is handle");
+      // console.log(data);
+      res.render("list", {handle: req.user.handle, message: data, user: data})
+      console.log(req.user.handle, "this is handle");
     })
   })
 
 
 
 
-router.get("/create", function(req,res) {
-  models.User.findAll()
-  .then(function(data){
+router.get("/create", isAuthenticated, function(req,res) {
   res.render("create", {handle: req.user.handle})
-  })
 })
+
+
 
 
 router.post("/squawk", function(req,res) {
@@ -78,6 +129,12 @@ router.post("/squawk", function(req,res) {
    })
  });
 
+const allreadyLiked = function (req, res, next){
+  models.Message.findById()
+}
+
+
+
 router.get("/like/:id", function(req,res) {
     models.Like.create({
       user_id: req.user.id,
@@ -88,14 +145,6 @@ router.get("/like/:id", function(req,res) {
     console.log("this is like", req.like.id);
   })
 })
-
-
-
-
-
-
-
-
 
 router.get("/", function(req, res) {
   res.render("login", {
@@ -144,9 +193,7 @@ router.post("/signup", function(req, res) {
 router.get("/signup", function(req,res) {
   res.render("login");
 })
-router.get("/list", isAuthenticated, function(req, res) {
-  res.render("list", {username: ''});
-});
+
 
 router.get("/logout", function(req, res) {
   req.logout();

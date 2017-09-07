@@ -6,7 +6,7 @@
       <h3>Please Sign In</h3>
     <form class="login" action="/login" method="post"><br>
       <input type="email" name="username" placeholder="email"><br>
-      <input type="text" name="password" placeholder="password">
+      <input type="password" name="password" placeholder="password">
       <br><button type="submit" name="button">Sign In</button>
     </form>{{#message}}{{.}}{{/message}}
 
@@ -21,8 +21,7 @@
     <form class="signup" action="/signup" method="post">
       <input type="email" name="username" placeholder="email"><br>
       <input type="text" name="handle" placeholder="squawker handle"><br>
-      <input type="text" name="password" placeholder="password"><br>
-      <input type="text" name="confirm_password" placeholder="confirm password">
+      <input type="password" name="password" placeholder="password"><br>
       <br><button type="submit" name="button">Start Squawking</button>
     </form>
   </div>
