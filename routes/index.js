@@ -158,9 +158,7 @@ router.post('/login', passport.authenticate('local', {
     failureFlash: true
 }));
 
-router.get("/signup", function(req, res) {
-  res.render("signup");
-});
+
 
 router.post("/signup", function(req, res) {
    username = req.body.username,
@@ -189,10 +187,6 @@ router.post("/signup", function(req, res) {
     res.redirect('/signup')
   });
 });
-
-router.get("/signup", function(req,res) {
-  res.render("login");
-})
 
 
 router.get("/logout", function(req, res) {
