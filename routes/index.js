@@ -1,13 +1,12 @@
 const express = require("express");
 const User = require("../models/index");
 const Message = require("../models/index");
-// const Like = require("../models/index");
 const models = require("../models/index")
 const router = express.Router();
 const bcrypt = require("bcrypt");
-
-
 const passport = require('passport');
+
+
 
 const isAuthenticated = function (req, res, next) {
   console.log(req.isAuthenticated());
@@ -129,9 +128,7 @@ router.post("/squawk", function(req,res) {
    })
  });
 
-const allreadyLiked = function (req, res, next){
-  models.Message.findById()
-}
+
 
 
 
@@ -146,11 +143,6 @@ router.get("/like/:id", function(req,res) {
   })
 })
 
-router.get("/", function(req, res) {
-  res.render("login", {
-      messages: res.locals.getMessages()
-  });
-});
 
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/list',
@@ -181,10 +173,10 @@ router.post("/signup", function(req, res) {
   }
 
   models.User.create(newUser).then(function() {
-    res.redirect('/')
+    res.redirect('/', {good: "you have successfully created an account, please log in"})
   }).catch(function(error) {
     req.flash('error', "Please, choose a different username.")
-    res.redirect('/signup')
+    res.redirect('/')
   });
 });
 
